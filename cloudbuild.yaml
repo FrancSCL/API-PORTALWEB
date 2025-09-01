@@ -1,11 +1,11 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-west1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb', '.']
   
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'europe-west1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb']
+    args: ['push', 'us-central1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb']
   
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -15,9 +15,9 @@ steps:
       - 'deploy'
       - 'api-portalweb'
       - '--image'
-      - 'europe-west1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb'
+      - 'us-central1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb'
       - '--region'
-      - 'europe-west1'
+      - 'us-central1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
@@ -33,4 +33,4 @@ steps:
       - '300'
 
 images:
-  - 'europe-west1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb'
+  - 'us-central1-docker.pkg.dev/gestion-la-hornilla/cloud-run-source-deploy/api-portalweb'
