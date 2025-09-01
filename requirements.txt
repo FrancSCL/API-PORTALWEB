@@ -19,3 +19,6 @@ Werkzeug==2.3.7
 
 # Logging y debugging
 logging==0.4.9.6
+
+# Dependencias adicionales para Cloud Run
+gunicorn==21.2.0
